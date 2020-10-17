@@ -201,7 +201,7 @@
     {
       "layerType": "switchlayer",
       "layerKey": "WATERBODY_SWITCH_LAYER",
-      "visibility": false,
+      "visibility": true,
       "layers": [
         {
           "layerType": "wms",
