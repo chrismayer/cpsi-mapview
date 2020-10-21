@@ -955,6 +955,13 @@ Ext.define('CpsiMapview.factory.Layer', {
                     // store filters for either layer type so they can be retrieved when switching
                     newLayerSource.set('additionalFilters', filters);
 
+                    // add original tree config (from tree.json) to new layer
+                    var origTreeNodeConf = newLayer.get('_origTreeConf');
+                    if (!origTreeNodeConf) {
+                        origTreeNodeConf = CpsiMapview.controller.LayerTreeController.getTreeNodeConf(newLayer.get('layerKey'));
+                        newLayer.set('_origTreeConf', origTreeNodeConf);
+                    }
+
                     if (newLayer.get('isWms')) {
 
                         activeStyle = LegendUtil.getWmsStyleFromSldFile(activeStyle);
