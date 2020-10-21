@@ -1052,7 +1052,11 @@ Ext.define('CpsiMapview.factory.Layer', {
             var switchConf = node.getOlLayer().get('switchConfiguration');
 
             // only change for switch layers
-            if(switchConf){
+            if(switchConf) {
+                // apply tree node text from tree config
+                var origTreeNodeConf = node.getOlLayer().get('_origTreeConf');
+                node.set('text', origTreeNodeConf.text);
+                // trigger UI updates (e.g. tree node plugins)
                 node.triggerUIUpdate();
             }
         });
